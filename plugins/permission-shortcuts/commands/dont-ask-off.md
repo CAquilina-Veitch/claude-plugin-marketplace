@@ -1,21 +1,13 @@
 # Don't Ask Off
 
-Return to default permission mode - prompts for new tools as normal.
+Return to default permission mode.
 
 ## Instructions
 
-1. Read the user's Claude settings file (on Windows: `C:\Users\<username>\.claude\settings.json`, on Mac/Linux: `~/.claude/settings.json`). Use the HOME environment variable or user's actual home directory path.
-2. Parse the JSON content
-3. Ensure `permissions` object exists, create it if not
-4. Set `permissions.defaultMode` to `"default"`
-5. Write the updated JSON back to the file (preserve formatting with 2-space indent)
-6. Confirm to the user: "Permission mode set to **default**. You will be prompted for new tool permissions as normal. Restart Claude Code if needed."
+Run this single PowerShell command (works on Windows):
 
-If the file doesn't exist, create it with:
-```json
-{
-  "permissions": {
-    "defaultMode": "default"
-  }
-}
+```powershell
+powershell -Command "$f='C:\Users\'+$env:USERNAME+'\.claude\settings.json'; $j=Get-Content $f -Raw | ConvertFrom-Json; if(-not $j.permissions){$j | Add-Member -Type NoteProperty -Name permissions -Value @{}}; $j.permissions.defaultMode='default'; $j | ConvertTo-Json -Depth 10 | Set-Content $f; Write-Host 'Set to default'"
 ```
+
+Then confirm: "Permission mode set to **default**. Restart Claude Code if needed."

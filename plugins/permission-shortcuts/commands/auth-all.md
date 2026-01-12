@@ -1,21 +1,13 @@
 # Auth All
 
-Bypass all permission prompts by setting `defaultMode` to `bypassPermissions`.
+Bypass all permission prompts.
 
 ## Instructions
 
-1. Read the user's Claude settings file (on Windows: `C:\Users\<username>\.claude\settings.json`, on Mac/Linux: `~/.claude/settings.json`). Use the HOME environment variable or user's actual home directory path.
-2. Parse the JSON content
-3. Ensure `permissions` object exists, create it if not
-4. Set `permissions.defaultMode` to `"bypassPermissions"`
-5. Write the updated JSON back to the file (preserve formatting with 2-space indent)
-6. Confirm to the user: "Permission mode set to **bypassPermissions**. All permission prompts will be skipped. Restart Claude Code if needed."
+Run this single PowerShell command (works on Windows):
 
-If the file doesn't exist, create it with:
-```json
-{
-  "permissions": {
-    "defaultMode": "bypassPermissions"
-  }
-}
+```powershell
+powershell -Command "$f='C:\Users\'+$env:USERNAME+'\.claude\settings.json'; $j=Get-Content $f -Raw | ConvertFrom-Json; if(-not $j.permissions){$j | Add-Member -Type NoteProperty -Name permissions -Value @{}}; $j.permissions.defaultMode='bypassPermissions'; $j | ConvertTo-Json -Depth 10 | Set-Content $f; Write-Host 'Set to bypassPermissions'"
 ```
+
+Then confirm: "Permission mode set to **bypassPermissions**. Restart Claude Code if needed."
