@@ -4,7 +4,7 @@ Return to default permission mode - prompts for new tools as normal.
 
 ## Instructions
 
-1. Read the user's Claude settings file at `~/.claude/settings.json`
+1. Read the user's Claude settings file (on Windows: `C:\Users\<username>\.claude\settings.json`, on Mac/Linux: `~/.claude/settings.json`). Use the HOME environment variable or user's actual home directory path.
 2. Parse the JSON content
 3. Ensure `permissions` object exists, create it if not
 4. Set `permissions.defaultMode` to `"default"`
