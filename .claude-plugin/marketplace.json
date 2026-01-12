@@ -10,6 +10,12 @@
       "source": "./plugins/plugin-creator",
       "description": "A skill that helps you scaffold and create new Claude Code plugins",
       "version": "1.0.0"
+    },
+    {
+      "name": "permission-shortcuts",
+      "source": "./plugins/permission-shortcuts",
+      "description": "Quick commands to toggle Claude Code permission modes (auth-all, dont-ask)",
+      "version": "1.0.0"
     }
   ]
 }

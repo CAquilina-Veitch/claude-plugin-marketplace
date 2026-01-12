@@ -1,0 +1,10 @@
+{
+  "name": "permission-shortcuts",
+  "version": "1.0.0",
+  "description": "Quick commands to toggle Claude Code permission modes",
+  "author": {
+    "name": "Cody"
+  },
+  "license": "MIT",
+  "keywords": ["permissions", "security", "workflow", "productivity"]
+}
