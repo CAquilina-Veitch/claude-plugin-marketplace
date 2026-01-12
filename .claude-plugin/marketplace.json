@@ -1,0 +1,15 @@
+{
+  "name": "cody-plugin-marketplace",
+  "owner": {
+    "name": "Cody",
+    "email": ""
+  },
+  "plugins": [
+    {
+      "name": "plugin-creator",
+      "source": "./plugins/plugin-creator",
+      "description": "A skill that helps you scaffold and create new Claude Code plugins",
+      "version": "1.0.0"
+    }
+  ]
+}
